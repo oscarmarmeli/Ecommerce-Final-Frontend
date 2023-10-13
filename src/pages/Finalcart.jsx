@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import useCart from "../store/useCart";
 import "../Cart.css";
 
@@ -7,8 +7,9 @@ const FinalCart = () => {
   const { cart, clearCart } = useCart();
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
-  const [shippingType, setShippingType] = useState("standard"); // Valor por defecto
+  const [shippingType, setShippingType] = useState("retiro por el local"); // Valor por defecto
   const [shippingAddress, setShippingAddress] = useState("");
   const [totalPrice, setTotalPrice] = useState(0); // Inicializado a 0
 
@@ -18,7 +19,7 @@ const FinalCart = () => {
 
     try {
       // Obtener el ID del usuario actual (deberás implementar esta lógica)
-      const userId = 1; /* hardcodeado para que grabe */
+      const userId = 2; /* hardcodeado para que grabe */
 
       // Calcular el precio total a partir del carrito
       const calculatedTotalPrice = cart.reduce(
@@ -47,6 +48,8 @@ const FinalCart = () => {
         // El pedido se registró con éxito, puedes redirigir al usuario a una página de confirmación
         console.log("Pedido registrado con éxito");
         clearCart(); // Limpia el carrito después de la compra
+        // Registro exitoso, puedes redirigir al usuario a la página de inicio de sesión o mostrar un mensaje de éxito.
+        navigate("/home");
       } else {
         // Hubo un error en el registro del pedido, muestra un mensaje de error al usuario
         const errorData = await response.json();
@@ -79,8 +82,8 @@ const FinalCart = () => {
           value={shippingType}
           onChange={(e) => setShippingType(e.target.value)}
         >
-          <option value="standard">Envío Estándar</option>
-          <option value="express">Envío Express</option>
+          <option value="retiro por el local">retiro por el local</option>
+          <option value="envío a domicilio">envío a domicilio</option>
         </select>
       </label>
       <label>
