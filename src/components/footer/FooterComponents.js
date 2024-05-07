@@ -28,3 +28,9 @@ export const FooterLink = styled.a`
     text-decoration: underline;
   }
 `;
+
+export const SocialIcon = styled.img`
+  color: black;
+  width: 5px; /* Tamaño deseado para los iconos */
+  height: auto;
+`;

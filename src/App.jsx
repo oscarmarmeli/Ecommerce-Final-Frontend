@@ -47,7 +47,14 @@ const App = () => {
               </MainLayout>
             }
           />
-          <Route path="/login" element={<Login />} />
+          <Route
+            path="/login"
+            element={
+              <MainLayout>
+                <Login />
+              </MainLayout>
+            }
+          />
           <Route
             path="*"
             element={

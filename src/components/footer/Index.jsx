@@ -5,7 +5,8 @@ import {
   FooterLogo,
   FooterLinks,
   FooterLink,
-} from "./FooterComponents";
+  SocialIcon,
+} from "./FooterComponents"; // Asegúrate de importar SocialIcon desde tu archivo FooterComponents si existe
 
 const Footer = () => {
   return (
@@ -17,21 +18,21 @@ const Footer = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Twitter
+          <SocialIcon src="../../images/Twitter.png" alt="Twitter" />
         </FooterLink>
         <FooterLink
           href="https://facebook.com"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Facebook
+          <SocialIcon src="../../images/Facebook.png" alt="Facebook" />
         </FooterLink>
         <FooterLink
           href="https://instagram.com"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Instagram
+          <SocialIcon src="../../images/Instagram.png" alt="Instagram" />
         </FooterLink>
       </FooterLinks>
     </FooterContainer>

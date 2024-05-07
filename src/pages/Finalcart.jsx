@@ -22,11 +22,10 @@ const FinalCart = () => {
       const userId = 2; /* hardcodeado para que grabe */
 
       // Calcular el precio total a partir del carrito
-      const calculatedTotalPrice = cart.reduce(
-        (total, product) => total + product.precio,
-        0
-      );
-
+      const calculatedTotalPrice = cart.reduce((total, product) => {
+        return total + parseFloat(product.precio);
+      }, 0);
+      
       // Obtener el tipo de envío y la dirección de envío
       const orderData = {
         user_id: userId,
@@ -49,7 +48,7 @@ const FinalCart = () => {
         console.log("Pedido registrado con éxito");
         clearCart(); // Limpia el carrito después de la compra
         // Registro exitoso, puedes redirigir al usuario a la página de inicio de sesión o mostrar un mensaje de éxito.
-        navigate("/home");
+        navigate("/");
       } else {
         // Hubo un error en el registro del pedido, muestra un mensaje de error al usuario
         const errorData = await response.json();
