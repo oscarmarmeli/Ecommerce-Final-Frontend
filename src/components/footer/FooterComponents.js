@@ -30,7 +30,12 @@ export const FooterLink = styled.a`
 `;
 
 export const SocialIcon = styled.img`
-  color: black;
-  width: 5px; /* Tamaño deseado para los iconos */
+  width: 20px; /* Tamaño deseado para los iconos */
   height: auto;
+`;
+
+export const SocialMessage = styled.span`
+  font-size: 1.2rem;
+  color: black;
+  margin-right: 10px; /* Espacio entre el mensaje y los íconos */
 `;
